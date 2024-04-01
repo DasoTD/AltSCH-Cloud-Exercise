@@ -163,5 +163,5 @@
 
 - Web pages
 
-![Web Page](img/w1.jpg)
-![Web Page](img/w2.jpg)
+![Web Page](img/w1.png)
+![Web Page](img/w2.png)
