@@ -75,7 +75,7 @@
 
 ## Result:
 
-![Ansible Play](img/running.jpg)
+![Ansible Play](img/running.png)
 
 ### Ansible Playbook with roles
 
