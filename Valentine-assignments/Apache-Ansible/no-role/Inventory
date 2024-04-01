@@ -1,5 +1,5 @@
 [centos]
-192.168.56.9 Apache_package_name=httpd Apache_service_name=httpd
+13.60.20.168 Apache_package_name=httpd Apache_service_name=httpd
 
 [ubuntu]
-192.168.56.7 Apache_package_name=apache2 Apache_service_name=apache2
+16.171.154.103 Apache_package_name=apache2 Apache_service_name=apache2
