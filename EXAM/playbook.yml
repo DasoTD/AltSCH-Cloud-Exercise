@@ -1,0 +1,40 @@
+---
+- name: Deploy Exam LAMP Stack
+  hosts: all
+  become: true
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: /home/vagrant/laravel.sh
+        dest: /home/vagrant/laravel.sh
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: install LAMP Stack Deployment Script
+      script: /home/vagrant/laravel.sh
+    - name: Setup Cron to Check Server Up-Time Every 12AM
+      cron:
+        name: "Execute Cron Every 12AM"
+        minute: "0"
+        hour: "0"
+        job: "uptime >> ~/uptime.log"
+
+    - name: Check Server Uptime
+      command: uptime -p
+      register: uptime_out
+
+    - name: Print Out Server Up-Time in Play
+      debug:
+        var: uptime_out.stdout
+
+
+    - name: Check PHP Application Accessibility
+      command: curl http://192.168.56.12
+      register: php_app_response
+      #ignore_errors: true
+
+    - name: Display Message if PHP Application is Accessible
+      debug:
+        msg: "PHP Application is Accessible"
+      when: php_app_response.rc == 0
